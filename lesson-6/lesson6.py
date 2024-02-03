@@ -21,13 +21,13 @@ team: list[Player] = [
 
 
 def dedup(team: list[Player]) -> Generator[str, str, None]:
-    players_names: set[str] = set()
+    players_first_names: set[str] = set()
 
     for player in team:
-        if player.first_name not in players_names:
+        if player.first_name not in players_first_names:
             yield player
-            players_names.add(player.first_name)
+            players_first_names.add(player.first_name)
 
 
 for player in dedup(team):
-    print(player)
+    print(player.first_name, player.last_name)
