@@ -20,6 +20,10 @@ team: list[Player] = [
 ]
 
 
+# for player in team:
+#     print(player)
+
+
 def dedup(team: list[Player]) -> Generator[str, str, None]:
     players_first_names: set[str] = set()
 
