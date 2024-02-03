@@ -23,7 +23,6 @@ team: list[Player] = [
 def dedup(team: list[Player]) -> Generator[str, None, None]:
     players_names: set[str] = set()
 
-
     for player in team:
         if player.first_name not in players_names:
             yield player
