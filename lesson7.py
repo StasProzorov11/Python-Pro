@@ -1,6 +1,5 @@
 TEAM_TYPE = dict[int, dict]
 
-# Database representation
 _TEAM: TEAM_TYPE = {
     1: {"name": "John", "age": 20},
     3: {"name": "Mark", "age": 33},
@@ -53,9 +52,7 @@ def repr_players():
         print(f"\t[Player {number}]: {player['name']},{player['age']}")
 
 
-def player_add(
-    name: str, age: int, number: int
-) -> dict | None:  # 3.8 python - typing.Optional[dict]
+def player_add(name: str, age: int, number: int) -> dict | None:
     player: dict = {"name": name, "age": age}
     saved: bool = save(id_=number, instance=player)
 
@@ -99,9 +96,8 @@ def commands_dispatcher(operation: str):
         repr_players()
     elif operation == "add":
         user_data = input("Enter new player information[name,age,number]: ")
-        # Input: 'Clark,19,22'
+
         user_items: list[str] = user_data.split(",")
-        # Result: ['Clark', '19', '22']
         name, age, number = user_items
         try:
             player_add(name=name, age=int(age), number=int(number))
@@ -119,9 +115,7 @@ def commands_dispatcher(operation: str):
 
     elif operation == "update":
         user_data = input("Enter a new player's information[name,age,number]: ")
-        # Input: 'Clark,19,22'
         user_items: list[str] = user_data.split(",")
-        # Result: ['Clark', '19', '22']
         name, age, number = user_items
         try:
             new_player = player_update(name=name, age=int(age), number=int(number))
